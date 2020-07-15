@@ -75,7 +75,6 @@ us_format <- list(
   theme(legend.justification=c(1,0),legend.position=c(1,0), legend.background=element_rect(colour="black")))
 
 # Add cities layer to basic map
-#p1 <- plot2 + labs(subtitle = "US - By state", fill = "# of Hits") + us_format + theme_map()
 plot1 <- plotmap + us_format + theme_map()
 
 
@@ -86,8 +85,6 @@ geoMap <- as_tibble(geoMap)
 geoMap$grp <- NA
 geoMap$grp[geoMap$backyard > 0.5] <- "Backyard"
 geoMap$grp[geoMap$backyard < 0.5] <- "Curbside"
-
-# NOT NEEDED geoMap$dom <- ifelse(geoMap$backyard > geoMap$curbside, geoMap$backyard, geoMap$curbside)
 
 # Filter comparison data to necessary variables
 geoMap2 <- geoMap %>%
